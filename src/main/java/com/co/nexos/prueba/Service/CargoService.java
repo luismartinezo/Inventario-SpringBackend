@@ -11,7 +11,8 @@ import com.co.nexos.prueba.Model.Cargo;
 
 /**
  * @author luis.martinez
- *
+ * @since 16/02/2021
+ * @version 1.0
  */
 public interface CargoService {
 	Cargo save(Cargo cargo);

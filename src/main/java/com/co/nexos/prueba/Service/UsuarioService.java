@@ -9,7 +9,8 @@ import com.co.nexos.prueba.Model.Usuario;
 
 /**
  * @author luis.martinez
- *
+ * @since 16/02/2021
+ * @version 1.0
  */
 public interface UsuarioService {
 

@@ -14,7 +14,8 @@ import com.co.nexos.prueba.Repository.MercanciaRepository;
 
 /**
  * @author luis.martinez
- *
+ * @since 16/02/2021
+ * @version 1.0
  */
 public class MercanciaServiceImp implements MercanciaService{
 
