@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.co.nexos.prueba.Model.Cargo;
 import com.co.nexos.prueba.Repository.CargoRepository;
@@ -16,6 +17,8 @@ import com.co.nexos.prueba.Repository.CargoRepository;
  * @since 16/02/2021
  * @version 1.0
  */
+
+@Service
 public class CargoServiceImp implements CargoService{
 
 	@Autowired
