@@ -39,7 +39,7 @@ public class MercanciaController {
 			throws JsonMappingException, JsonProcessingException, NexosExcepcion {
 		this.mapper = new ObjectMapper();
 		Mercancia mercancia = this.mapper.readValue(mercanciaJson, Mercancia.class);
-
+		this.validator(mercancia);
 		if (!this.validate(mercancia)) {
 			return new restResponse(HttpStatus.NOT_ACCEPTABLE.value(), "Campo obligatorio sin diligenciar");
 		}
@@ -58,7 +58,7 @@ public class MercanciaController {
 		this.mapper = new ObjectMapper();
 
 		Mercancia mercancia = this.mapper.readValue(mercanciaJson, Mercancia.class);
-
+		this.validator(mercancia);
 		if (!mercanciaService.existeId(mercancia.getId())) {
 			return new restResponse(HttpStatus.NOT_FOUND.value(), "No existe el Producto en la base de datos");
 		}
@@ -98,4 +98,15 @@ public class MercanciaController {
 		}
 		return isValid;
 	}
+	
+	public void validator(Mercancia mercancia) throws NexosExcepcion {
+		java.util.Date fecha = new Date();
+		if(mercancia.getFecha_ingreso().after(fecha)) {
+			message("La fecha de ingreso debe ser menor o igual a la fecha actual");
+		}
+		
+	}
+    private void message(String mensaje) throws NexosExcepcion {
+    	throw new NexosExcepcion(mensaje);
+    }
 }

@@ -3,6 +3,7 @@
  */
 package com.co.nexos.prueba.Controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class UsuarioController {
 			throws JsonMappingException, JsonProcessingException, NexosExcepcion {
 		this.mapper = new ObjectMapper();
 		Usuario usuario = this.mapper.readValue(usuarioJson, Usuario.class);
-
+		this.validator(usuario);
 		if (!this.validate(usuario)) {
 			return new restResponse(HttpStatus.NOT_ACCEPTABLE.value(), "Campo obligatorio sin diligenciar");
 		}
@@ -58,9 +59,9 @@ public class UsuarioController {
 	public restResponse update(@RequestBody String usuarioJson)
 			throws JsonMappingException, JsonProcessingException, NexosExcepcion {
 		this.mapper = new ObjectMapper();
-
+		
 		Usuario usuario = this.mapper.readValue(usuarioJson, Usuario.class);
-
+		this.validator(usuario);
 		if (!usuarioService.existeId(usuario.getId())) {
 			return new restResponse(HttpStatus.NOT_FOUND.value(), "No existe el usuario en la base de datos");
 		}
@@ -100,5 +101,16 @@ public class UsuarioController {
 		}
 		return isValid;
 	}
+	
+	public void validator(Usuario usuario) throws NexosExcepcion {
+		java.util.Date fecha = new Date();
+		if(usuario.getFecha_ingreso().after(fecha)) {
+			message("La fecha de ingreso debe ser menor o igual a la fecha actual");
+		}
+		
+	}
+    private void message(String mensaje) throws NexosExcepcion {
+    	throw new NexosExcepcion(mensaje);
+    }
 
 }

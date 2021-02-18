@@ -32,6 +32,16 @@ public class Usuario {
     @Column
     private Date fecha_ingreso;
 
+    
+//	protected Usuario(Long id, String nombre, String edad, int cargo_id, Date fecha_ingreso) {
+//		super();
+//		this.id = id;
+//		this.nombre = nombre;
+//		this.edad = edad;
+//		this.cargo_id = cargo_id;
+//		this.fecha_ingreso = fecha_ingreso;
+//	}
+
 	public Long getId() {
 		return id;
 	}
