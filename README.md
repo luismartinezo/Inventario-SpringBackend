@@ -21,11 +21,6 @@ Este proyecto ha sido generado con [Spring Boot](https://spring.io/) version 2.4
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 Se requiere desarrollar un sistema de inventario para el sector automotriz donde se controle la mercancía que ingresa y la que sale.
 
-## Instalacion
-
-* Descargar proyecto desde el repositorio por medio de git o como un paquete .zip
-* Luego de tener descargado o descomprimido, abrir una consola windows o git bash y ejecutar el comando `npm instal`, esto descaga las dependencias de desarrollo.
-
 ## Construir para Producción
 
 Ejecute `./mvnw clean package` para construir el proyecto. 
