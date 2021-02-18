@@ -8,7 +8,7 @@ Este proyecto ha sido generado con [Spring Boot](https://spring.io/) version 2.4
 
 * Java 8 
 * Spring framework, Spring data, Spring web  
-* BD MySQL 
+* [BD MySQL](https://github.com/luismartinezo/Inventario-SpringBackend/tree/master/BaseDatos)
 * Maven
 * JUnit
 
